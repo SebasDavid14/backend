@@ -40,7 +40,13 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        
+        // Agregas la URL de producción de Angular en Railway manteniendo localhost para desarrollo
+        configuration.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "https://frontend-production-52f5.up.railway.app"
+        ));
+        
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
