@@ -1,9 +1,11 @@
 package com.sistema.backend.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "tasks")
+@Data
 public class Task {
 
     @Id
