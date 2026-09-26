@@ -18,6 +18,11 @@ public class Task {
     private String description;
     private boolean completed;
 
+    // AÑADIDO: Relación con el Usuario
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Task() {}
 
     public Task(String title, String description, boolean completed) {
@@ -33,4 +38,8 @@ public class Task {
     public void setDescription(String description) { this.description = description; }
     public boolean isCompleted() { return completed; }
     public void setCompleted(boolean completed) { this.completed = completed; }
+
+    // AÑADIDO: Getter y Setter para User
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
